@@ -6,13 +6,15 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 22:28:48 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/02 01:07:49 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/02 01:55:12 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <pthread.h>
 #include <stdlib.h>
 #include "philo_one.h"
+
+#include <stdio.h>
 
 static int	read_settings(t_settings **settings, int argc, char **argv)
 {
@@ -36,9 +38,17 @@ static int	read_settings(t_settings **settings, int argc, char **argv)
 int			main(int argc, char **argv)
 {
 	t_settings	*settings;
+	char		*str;
+	int			i = 1;
 
 	if (read_settings(&settings ,argc, argv) == -1)
 		return (1);
+	while ((str = argv[i]) != 0)
+	{
+		printf("%d\n", ft_atoi(str));
+		printf("%d\n", atoi(str));
+		i++;
+	}
 	return (argc && argv);
 }
 

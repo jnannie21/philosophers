@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 23:10:56 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/02 01:04:27 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/02 02:02:18 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,7 @@ int				ft_atoi(const char *nptr)
 	str = skip_insignificant_zeros(str);
 	res = 0;
 	pow = 1;
-	if ((n = digit_count(str)) > MAX_LONG_LENGTH)
-		return ((sign == -1) ? 0 : -1);
+	n = digit_count(str);
 	while (n--)
 	{
 		if (res + (str[n] - 48) * pow > MAX_POS_LONG_VALUE)
@@ -66,5 +65,5 @@ int				ft_atoi(const char *nptr)
 		res = res + (str[n] - 48) * pow;
 		pow *= 10;
 	}
-	return (sign * res);
+	return ((int)(sign * res));
 }
