@@ -1,7 +1,7 @@
 CC = gcc
-CFLAGS = -c -Wall -Wextra -Werror
+CFLAGS = -c -Wall -Wextra -Werror -pthread
 MAIN_SOURCES = 	main.c ft_atoi.c ft_calloc.c ft_strlen.c ft_putstr_fd.c		\
-				errors.c
+				errors.c ft_putnbr_fd.c ft_strcmp.c
 NAME = philo_one
 
 OBJECTS = $(MAIN_SOURCES:.c=.o)
