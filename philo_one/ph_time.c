@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ph_time.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 22:28:48 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/15 18:45:23 by jnannie          ###   ########.fr       */
+/*   Created: 2020/11/15 17:21:28 by jnannie           #+#    #+#             */
+/*   Updated: 2020/11/15 17:22:45 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <pthread.h>
-#include <stdlib.h>
-#include <string.h>
 #include <sys/time.h>
 #include "philo_one.h"
 
-t_data			g_data;
-
-int			main(int argc, char **argv)
+int	ph_time(void)
 {
-	if (read_settings(argc, argv) == -1 ||
-		init_philosophers() == -1)
-		return (1);
-	pthread_mutex_init(&g_data.output_mutex, NULL);
-	pthread_mutex_init(&g_data.check_dead_philo_mutex, NULL);
-	run_threads();
-	join_threads();
-	return (0);
+	struct timeval	tv;
+	long			current_time;
+
+	gettimeofday(&tv, NULL);
+	current_time = tv.tv_sec * 1000 + tv.tv_usec / 1000;
+	return ((int)(current_time - g_data.start_time));
 }

@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:03:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/13 06:22:59 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/15 18:44:42 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,15 @@ int					ft_strcmp(char *s1, char *s2);
 
 int					error_wrong_number_arguments(void);
 int					fatal_error(void);
+
+void				*philo_lifecycle(void *philo);
+void				*monitoring(void *philo);
+void				change_state(char *state, pthread_mutex_t *output_mutex,
+								int i);
+int					ph_time(void);
+void				run_threads(void);
+void				join_threads(void);
+int					read_settings(int argc, char **argv);
+int					init_philosophers(void);
 
 #endif
