@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 17:45:41 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/16 03:20:32 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/16 07:03:12 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	*monitoring(void *philo)
 		{
 			pthread_mutex_lock(&g_data.check_dead_philo_mutex);
 			if (!g_data.some_philo_is_dead)
-				change_state(PH_DIED, &g_data.output_mutex, ((t_philosopher *)philo)->i);
+				change_state(PH_DIED, ((t_philosopher *)philo)->i);
 			pthread_mutex_unlock(&g_data.check_dead_philo_mutex);
 			break ;
 		}

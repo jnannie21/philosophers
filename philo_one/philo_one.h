@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:03:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/16 03:07:45 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/16 07:03:02 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,7 @@ int					fatal_error(void);
 
 void				*philo_lifecycle(void *philo);
 void				*monitoring(void *philo);
-void				change_state(char *state, pthread_mutex_t *output_mutex,
-								int i);
+void				change_state(char *state, int i);
 int					ph_time(void);
 void				run_threads(void);
 void				join_threads(void);
