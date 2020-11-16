@@ -6,14 +6,11 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 22:28:48 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/15 18:45:23 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/16 00:58:33 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <pthread.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/time.h>
+#include <stdio.h>
 #include "philo_one.h"
 
 t_data			g_data;

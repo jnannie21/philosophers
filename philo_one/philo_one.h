@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:03:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/15 18:44:42 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/16 03:07:45 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@
 
 typedef struct		s_philosopher
 {
-	pthread_mutex_t	left_fork;
-	pthread_mutex_t	right_fork;
+	pthread_mutex_t	*left_fork;
+	pthread_mutex_t	*right_fork;
 	pthread_mutex_t	eat_time_mutex;
 	pthread_t		philo_thread;
 	pthread_t		monitor_thread;
 	int				state;
 	int				i;
-	long			last_eat_time;
+	int				last_eat_time;
 	int				is_dead;
 }					t_philosopher;
 
