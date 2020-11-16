@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 17:43:48 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/16 07:41:55 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/16 08:15:08 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ static void	take_forks(t_philosopher *philo)
 static void	put_forks_back(t_philosopher *philo)
 {
 	if (philo->i % 2)
-		pthread_mutex_unlock(philo->right_fork);
-	else
 		pthread_mutex_unlock(philo->left_fork);
+	else
+		pthread_mutex_unlock(philo->right_fork);
 	if (!(philo->i % 2))
-		pthread_mutex_unlock(philo->right_fork);
-	else
 		pthread_mutex_unlock(philo->left_fork);
+	else
+		pthread_mutex_unlock(philo->right_fork);
 }
 
 void	*philo_lifecycle(void *philo)
