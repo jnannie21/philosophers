@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 18:42:52 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/16 03:20:49 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/17 03:24:41 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	init_philosophers(void)
 	{
 		g_data.philos[i].last_eat_time = rel_start_time;
 		g_data.philos[i].i = i + 1;
-		
 		if (!((g_data.philos)[i].left_fork = ft_calloc(1, sizeof(pthread_mutex_t))))
 			return (fatal_error());
 		pthread_mutex_init((g_data.philos)[i].left_fork, NULL);

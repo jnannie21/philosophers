@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:03:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/16 07:03:02 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/17 01:42:22 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define PH_SLEEPING " is sleeping\n"
 # define PH_THINKING " is thinking\n"
 # define PH_DIED " died\n"
-# define MONITORING_DELAY 1000
+# define MONITORING_DELAY 100
 
 typedef struct		s_philosopher
 {
@@ -64,7 +64,7 @@ int					fatal_error(void);
 
 void				*philo_lifecycle(void *philo);
 void				*monitoring(void *philo);
-void				change_state(char *state, int i);
+void				change_state(char *state, t_philosopher *philo);
 int					ph_time(void);
 void				run_threads(void);
 void				join_threads(void);
