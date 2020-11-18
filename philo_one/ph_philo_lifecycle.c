@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 17:43:48 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/17 05:35:55 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/18 03:36:55 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,13 @@ void	*philo_lifecycle(void *philo)
 		}
 		pthread_mutex_unlock(&g_data.check_dead_philo_mutex);
 		take_forks((t_philosopher *)philo);
+		pthread_mutex_lock(&((t_philosopher *)philo)->eat_time_mutex);
 		change_state(PH_EATING, (t_philosopher *)philo);
-		usleep(g_data.time_to_eat * 1000);
+		pthread_mutex_unlock(&((t_philosopher *)philo)->eat_time_mutex);
+		ph_usleep(g_data.time_to_eat);
 		put_forks_back((t_philosopher *)philo);
 		change_state(PH_SLEEPING, (t_philosopher *)philo);
-		usleep(g_data.time_to_sleep * 1000);
+		ph_usleep(g_data.time_to_sleep);
 		change_state(PH_THINKING, (t_philosopher *)philo);
 	}
 	return (0);
