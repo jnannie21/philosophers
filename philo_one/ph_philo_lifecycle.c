@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 17:43:48 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/18 06:49:46 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/18 07:35:03 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	put_forks_back(t_philosopher *philo)
 		pthread_mutex_unlock(philo->right_fork);
 }
 
-void	*philo_lifecycle(void *philo)
+void		*philo_lifecycle(void *philo)
 {
 	while (1)
 	{
