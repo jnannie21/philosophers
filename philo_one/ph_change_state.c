@@ -6,15 +6,32 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 17:18:00 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/18 07:04:13 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/19 00:38:41 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_one.h"
 
-void	change_state(char *state, t_philosopher *philo)
+static void	ph_check_if_all_philo_ate(void)
 {
-	int				current_time;
+	int		i;
+
+	if (g_data.number_to_eat == -1)
+		return ;
+	i = 0;
+	while (i < g_data.number_of_philos)
+	{
+		if (g_data.philos[i].count_eat_times < g_data.number_to_eat)
+			break ;
+		i++;
+	}
+	if (i == g_data.number_of_philos)
+		g_data.some_philo_is_dead = 1;
+}
+
+void		change_state(char *state, t_philosopher *philo)
+{
+	int		current_time;
 
 	current_time = ph_time();
 	pthread_mutex_lock(&g_data.check_dead_philo_mutex);
@@ -26,7 +43,11 @@ void	change_state(char *state, t_philosopher *philo)
 	if (ft_strcmp(state, PH_DIED) == 0)
 		g_data.some_philo_is_dead = 1;
 	else if (ft_strcmp(state, PH_EATING) == 0)
+	{
 		philo->last_eat_time = current_time;
+		philo->count_eat_times++;
+		ph_check_if_all_philo_ate();
+	}
 	pthread_mutex_unlock(&g_data.check_dead_philo_mutex);
 	pthread_mutex_lock(&g_data.output_mutex);
 	ft_putnbr_fd(current_time, 1);

@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:03:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/18 21:35:12 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/18 23:14:19 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct		s_philosopher
 	int				i;
 	int				last_eat_time;
 	int				is_dead;
+	int				count_eat_times;
 }					t_philosopher;
 
 typedef struct		s_data

@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 07:15:44 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/18 21:34:55 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/18 23:13:53 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ int	read_settings(int argc, char **argv)
 	g_data.time_to_sleep = ft_atoi(argv[4]);
 	if (argc == 6)
 		g_data.number_to_eat = ft_atoi(argv[5]);
+	else
+		g_data.number_to_eat = -1;
 	return (0);
 }
