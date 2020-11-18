@@ -6,11 +6,10 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 17:18:00 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/18 03:44:11 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/18 06:54:42 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "philo_one.h"
 
 void	change_state(char *state, t_philosopher *philo)
@@ -33,7 +32,7 @@ void	change_state(char *state, t_philosopher *philo)
 	pthread_mutex_unlock(&g_data.check_dead_philo_mutex);
 	pthread_mutex_lock(&g_data.output_mutex);
 	ft_putnbr_fd(current_time, 1);
-	ft_putstr_fd(" philosopher ", 1);
+	ft_putstr_fd(" philosopher_", 1);
 	ft_putnbr_fd(philo->i, 1);
 	ft_putstr_fd(state, 1);
 	pthread_mutex_unlock(&g_data.output_mutex);

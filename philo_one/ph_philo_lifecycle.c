@@ -6,14 +6,11 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 17:43:48 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/18 03:36:55 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/18 06:49:46 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "philo_one.h"
-
-#include <stdio.h>
 
 static void	take_forks(t_philosopher *philo)
 {
@@ -45,13 +42,8 @@ void	*philo_lifecycle(void *philo)
 {
 	while (1)
 	{
-		pthread_mutex_lock(&g_data.check_dead_philo_mutex);
 		if (g_data.some_philo_is_dead)
-		{
-			pthread_mutex_unlock(&g_data.check_dead_philo_mutex);
 			break ;
-		}
-		pthread_mutex_unlock(&g_data.check_dead_philo_mutex);
 		take_forks((t_philosopher *)philo);
 		pthread_mutex_lock(&((t_philosopher *)philo)->eat_time_mutex);
 		change_state(PH_EATING, (t_philosopher *)philo);

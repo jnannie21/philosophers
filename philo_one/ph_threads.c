@@ -6,11 +6,10 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 18:41:17 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/17 05:32:39 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/18 06:15:16 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "philo_one.h"
 
 void	run_threads(void)

@@ -6,12 +6,11 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 18:42:52 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/17 03:24:41 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/18 06:15:10 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sys/time.h>
-#include <stdio.h>
 #include "philo_one.h"
 
 int	read_settings(int argc, char **argv)

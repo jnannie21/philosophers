@@ -6,11 +6,10 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 22:28:48 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/17 05:33:48 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/18 06:15:22 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "philo_one.h"
 
 t_data			g_data;
