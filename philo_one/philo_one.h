@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:03:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/18 07:17:39 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/18 21:35:12 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void				ft_putnbr_fd(int n, int fd);
 int					ft_strcmp(char *s1, char *s2);
 
 int					error_wrong_number_arguments(void);
+int					error_wrong_number_of_philosophers(void);
 int					fatal_error(void);
 
 void				*philo_lifecycle(void *philo);
@@ -71,6 +72,7 @@ void				run_threads(void);
 void				join_threads(void);
 int					read_settings(int argc, char **argv);
 int					init_philosophers(void);
+void				destroy_philosophers(void);
 void				ph_usleep(int msec);
 
 #endif
