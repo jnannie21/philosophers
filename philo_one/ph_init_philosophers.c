@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 18:42:52 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/18 08:04:25 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/18 21:08:40 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,23 @@ static void	set_start_time(void)
 
 	gettimeofday(&tv, NULL);
 	g_data.start_time = tv.tv_sec * 1000 + tv.tv_usec / 1000;
+}
+
+static int	set_first_philo_right_fork(void)
+{
+	int				n_o_f;
+
+	n_o_f = g_data.number_of_philos;
+	if (n_o_f > 1)
+		(g_data.philos)[0].right_fork = (g_data.philos)[n_o_f - 1].left_fork;
+	else
+	{
+		if (!((g_data.philos)[0].right_fork = ft_calloc(1,
+								sizeof(pthread_mutex_t))))
+			return (fatal_error());
+		pthread_mutex_init((g_data.philos)[0].right_fork, NULL);
+	}
+	return (0);
 }
 
 int			init_philosophers(void)
@@ -45,6 +62,7 @@ int			init_philosophers(void)
 			(g_data.philos)[i].right_fork = (g_data.philos)[i - 1].left_fork;
 		i++;
 	}
-	(g_data.philos)[0].right_fork = (g_data.philos)[i - 1].left_fork;
+	if (set_first_philo_right_fork() == -1)
+		return (-1);
 	return (0);
 }
