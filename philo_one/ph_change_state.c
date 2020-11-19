@@ -6,13 +6,13 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 17:18:00 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/19 08:08:45 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/19 23:14:49 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_one.h"
 
-static void	ph_check_if_all_philo_ate(void)
+static void	ph_check_if_all_philo_have_eaten(void)
 {
 	int		i;
 
@@ -46,7 +46,7 @@ void		change_state(char *state, t_philosopher *philo)
 	{
 		philo->last_eat_time = current_time;
 		philo->count_eat_times++;
-		ph_check_if_all_philo_ate();
+		ph_check_if_all_philo_have_eaten();
 	}
 	ft_putnbr_fd(current_time, 1);
 	ft_putstr_fd(" philosopher_", 1);
