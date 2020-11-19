@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:03:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/18 23:14:19 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/19 05:22:33 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,11 @@ size_t				ft_strlen(const char *s);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 int					ft_strcmp(char *s1, char *s2);
+int					ft_isdigit(int c);
 
-int					error_wrong_number_arguments(void);
+int					error_wrong_number_of_arguments(void);
 int					error_wrong_number_of_philosophers(void);
+int					arg_is_error_not_numeric(void);
 int					fatal_error(void);
 
 void				*philo_lifecycle(void *philo);
