@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 22:28:48 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/18 21:43:27 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/19 08:08:55 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,9 @@ int			main(int argc, char **argv)
 		|| init_philosophers() == -1)
 		return (1);
 	pthread_mutex_init(&g_data.output_mutex, NULL);
-	pthread_mutex_init(&g_data.check_dead_philo_mutex, NULL);
 	run_threads();
 	join_threads();
 	destroy_philosophers();
 	pthread_mutex_destroy(&g_data.output_mutex);
-	pthread_mutex_destroy(&g_data.check_dead_philo_mutex);
 	return (0);
 }

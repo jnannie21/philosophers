@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:03:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/19 05:22:33 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/19 08:08:50 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ typedef struct		s_data
 	int				number_to_eat;
 	t_philosopher	*philos;
 	pthread_mutex_t	output_mutex;
-	pthread_mutex_t	check_dead_philo_mutex;
 	int				some_philo_is_dead;
 	long			start_time;
 }					t_data;
