@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 23:09:04 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/19 05:23:19 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/20 05:47:11 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int			error_wrong_number_of_arguments(void)
 
 int			error_wrong_number_of_philosophers(void)
 {
-	ft_putstr_fd("wrong number of philosophers\n", 2);
+	ft_putstr_fd("wrong number of philosophers(must be > 1)\n", 2);
 	return (-1);
 }
 
