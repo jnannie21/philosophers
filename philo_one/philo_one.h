@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:03:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/19 08:08:50 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/24 11:28:39 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,13 @@
 # define PH_THINKING " is thinking\n"
 # define PH_DIED " died\n"
 # define PH_MONITORING_DELAY 1000
-# define PH_USLEEP_DELAY 100
+# define PH_USLEEP_DELAY 400
+# define PH_BUFSIZE 50
+
+# define PH_ERR_WRONG_NUMBER_ARG "wrong number of arguments"
+# define PH_ERR_WRONG_NUMBER_PHILO "wrong number of philosophers(must be > 1)"
+# define PH_ERR_NOT_NUMERIC_ARG "all arguments must be numeric"
+# define PH_ERR_FATAL "fatal error"
 
 typedef struct		s_philosopher
 {
@@ -31,10 +37,8 @@ typedef struct		s_philosopher
 	pthread_mutex_t	eat_time_mutex;
 	pthread_t		philo_thread;
 	pthread_t		monitor_thread;
-	int				state;
 	int				i;
 	int				last_eat_time;
-	int				is_dead;
 	int				count_eat_times;
 }					t_philosopher;
 
@@ -47,6 +51,7 @@ typedef struct		s_data
 	int				number_to_eat;
 	t_philosopher	*philos;
 	pthread_mutex_t	output_mutex;
+	pthread_mutex_t	dead_philo_mutex;
 	int				some_philo_is_dead;
 	long			start_time;
 }					t_data;
@@ -56,15 +61,12 @@ extern t_data		g_data;
 void				*ft_calloc(size_t nmemb, size_t size);
 int					ft_atoi(const char *nptr);
 size_t				ft_strlen(const char *s);
-void				ft_putstr_fd(char *s, int fd);
-void				ft_putnbr_fd(int n, int fd);
+void				ft_putstr_to_buf(char *s, char *buf);
+void				ft_putnbr_to_buf(int n, char *buf);
 int					ft_strcmp(char *s1, char *s2);
 int					ft_isdigit(int c);
 
-int					error_wrong_number_of_arguments(void);
-int					error_wrong_number_of_philosophers(void);
-int					arg_is_error_not_numeric(void);
-int					fatal_error(void);
+int					ph_error(char *msg);
 
 void				*philo_lifecycle(void *philo);
 void				*monitoring(void *philo);
@@ -76,5 +78,7 @@ int					read_settings(int argc, char **argv);
 int					init_philosophers(void);
 void				destroy_philosophers(void);
 void				ph_usleep(int msec);
+void				print_status(int current_time, char *state,
+								t_philosopher *philo);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 18:42:52 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/20 07:21:18 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/24 06:11:36 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,14 @@ int			init_philosophers(void)
 	rel_start_time = ph_time();
 	if (!(g_data.philos = ft_calloc(g_data.number_of_philos,
 								sizeof(t_philosopher))))
-		return (fatal_error());
+		return (ph_error(PH_ERR_FATAL));
 	i = 0;
 	while (i < g_data.number_of_philos)
 	{
 		g_data.philos[i].last_eat_time = rel_start_time;
 		g_data.philos[i].i = i + 1;
 		if (init_mutexes(i) == -1)
-			return (fatal_error());
+			return (ph_error(PH_ERR_FATAL));
 		if (i > 0)
 			(g_data.philos)[i].right_fork = (g_data.philos)[i - 1].left_fork;
 		i++;

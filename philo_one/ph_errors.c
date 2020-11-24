@@ -6,32 +6,20 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 23:09:04 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/20 05:47:11 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/24 10:18:54 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "philo_one.h"
 
-int			error_wrong_number_of_arguments(void)
+int			ph_error(char *msg)
 {
-	ft_putstr_fd("wrong number of arguments\n", 2);
-	return (-1);
-}
+	char	*intro;
 
-int			error_wrong_number_of_philosophers(void)
-{
-	ft_putstr_fd("wrong number of philosophers(must be > 1)\n", 2);
-	return (-1);
-}
-
-int			arg_is_error_not_numeric(void)
-{
-	ft_putstr_fd("all arguments must be numeric\n", 2);
-	return (-1);
-}
-
-int			fatal_error(void)
-{
-	ft_putstr_fd("fatal error\n", 2);
+	intro = "error: ";
+	write(2, intro, ft_strlen(intro));
+	write(2, msg, ft_strlen(msg));
+	write(2, "\n", 1);
 	return (-1);
 }

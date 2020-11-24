@@ -1,22 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_to_buf.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 02:33:17 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/07 02:37:56 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/24 06:14:49 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "philo_one.h"
-
-static void		ft_putchar_fd(char c, int fd)
-{
-	write(fd, &c, 1);
-}
 
 static long		ft_pow10(int n)
 {
@@ -38,15 +33,20 @@ static int		count_num(int n)
 	return (num);
 }
 
-void			ft_putnbr_fd(int n, int fd)
+void			ft_putnbr_to_buf(int n, char *buf)
 {
 	int		num;
+	int		i;
 
 	num = count_num(n);
+	i = ft_strlen(buf);
 	if (n >= 0)
 		n *= (-1);
 	else
-		ft_putchar_fd('-', fd);
+		buf[i++] = '-';
 	while (num--)
-		ft_putchar_fd((-1) * ((n / ft_pow10(num)) % 10 - 48), fd);
+	{
+		buf[i] = (-1) * ((n / ft_pow10(num)) % 10 - 48);
+		i++;
+	}
 }

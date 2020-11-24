@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 17:43:48 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/18 07:35:03 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/24 03:59:27 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,7 @@ void		*philo_lifecycle(void *philo)
 		if (g_data.some_philo_is_dead)
 			break ;
 		take_forks((t_philosopher *)philo);
-		pthread_mutex_lock(&((t_philosopher *)philo)->eat_time_mutex);
 		change_state(PH_EATING, (t_philosopher *)philo);
-		pthread_mutex_unlock(&((t_philosopher *)philo)->eat_time_mutex);
 		ph_usleep(g_data.time_to_eat);
 		put_forks_back((t_philosopher *)philo);
 		change_state(PH_SLEEPING, (t_philosopher *)philo);

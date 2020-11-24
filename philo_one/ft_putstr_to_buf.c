@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putstr_to_buf.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 23:15:36 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/18 07:32:19 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/24 06:32:02 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "philo_one.h"
 
-void		ft_putstr_fd(char *s, int fd)
+void		ft_putstr_to_buf(char *s, char *buf)
 {
-	write(fd, s, ft_strlen(s));
+	int		i;
+
+	i = ft_strlen(buf);
+	while (*s)
+	{
+		buf[i] = *s;
+		s++;
+		i++;
+	}
 }
