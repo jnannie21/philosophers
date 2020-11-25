@@ -6,38 +6,45 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 17:45:41 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/25 03:34:19 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/25 07:57:36 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "philo_one.h"
 
-void	*monitoring(void *philo)
+static void		philo_is_died(t_philosopher *philo)
 {
-	int			current_time;
-	int			last_eat_time;
+	g_data.some_philo_is_dead = 1;
+	pthread_mutex_lock(&g_data.output_mutex);
+	if (g_data.philos_have_eaten)
+		return ;
+	print_status(ph_time(), PH_DIED, philo);
+	pthread_mutex_unlock(&g_data.output_mutex);
+}
+
+void			*monitoring(void *ret)
+{
+	int				current_time;
+	int				last_eat_time;
+	int				i;
+	t_philosopher	*philo;
 
 	while (1)
 	{
-		if (g_data.some_philo_is_dead)
-			break ;
-		pthread_mutex_lock(&((t_philosopher *)philo)->eat_time_mutex);
+		i = 0;
 		current_time = ph_time();
-		last_eat_time = ((t_philosopher *)philo)->last_eat_time;
-		if ((current_time - last_eat_time) > (g_data.time_to_die))
+		while (i < g_data.number_of_philos)
 		{
-			pthread_mutex_lock(&g_data.dead_philo_mutex);
 			if (g_data.some_philo_is_dead)
-				break ;
-			g_data.some_philo_is_dead = 1;
-			pthread_mutex_lock(&g_data.output_mutex);
-			print_status(ph_time(), PH_DIED, philo);
-			pthread_mutex_unlock(&g_data.output_mutex);
-			pthread_mutex_unlock(&g_data.dead_philo_mutex);
+				return (ret);
+			philo = g_data.philos + i;
+			pthread_mutex_lock(&philo->eat_time_mutex);
+			last_eat_time = philo->last_eat_time;
+			if ((current_time - last_eat_time) > (g_data.time_to_die))
+				philo_is_died(philo);
+			pthread_mutex_unlock(&philo->eat_time_mutex);
+			i++;
 		}
-		pthread_mutex_unlock(&((t_philosopher *)philo)->eat_time_mutex);
-		usleep(PH_MONITORING_DELAY);
+		ph_usleep(PH_MONITORING_DELAY);
 	}
-	return (0);
 }

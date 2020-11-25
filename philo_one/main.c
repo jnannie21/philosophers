@@ -6,13 +6,13 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 22:28:48 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/20 07:27:54 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/25 07:47:23 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_one.h"
 
-t_data			g_data;
+t_data		g_data;
 
 int			main(int argc, char **argv)
 {

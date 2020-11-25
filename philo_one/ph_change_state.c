@@ -6,13 +6,13 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 17:18:00 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/25 03:48:34 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/25 07:00:01 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_one.h"
 
-static void	check_if_all_philo_have_eaten(void)
+static void	check_if_philos_have_eaten(void)
 {
 	int		i;
 
@@ -26,7 +26,10 @@ static void	check_if_all_philo_have_eaten(void)
 		i++;
 	}
 	if (i == g_data.number_of_philos)
+	{
+		g_data.philos_have_eaten = 1;
 		g_data.some_philo_is_dead = 1;
+	}
 }
 
 void		change_state(char *state, t_philosopher *philo)
@@ -51,7 +54,7 @@ void		change_state(char *state, t_philosopher *philo)
 		}
 		philo->last_eat_time = current_time;
 		philo->count_eat_times++;
-		check_if_all_philo_have_eaten();
+		check_if_philos_have_eaten();
 		pthread_mutex_unlock(&((t_philosopher *)philo)->eat_time_mutex);
 	}
 	print_status(current_time, state, philo);

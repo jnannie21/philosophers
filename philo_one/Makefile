@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -c -Wall -Wextra -Werror -pthread -g -O0
+CFLAGS = -c -Wall -Wextra -Werror -pthread
 MAIN_SOURCES = 	main.c ft_atoi.c ft_calloc.c ft_strlen.c ft_putstr_to_buf.c	\
 				ft_putnbr_to_buf.c ft_strcmp.c ph_philo_lifecycle.c			\
 				ph_errors.c ph_time.c ph_monitoring.c ph_change_state.c		\

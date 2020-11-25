@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 09:04:32 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/24 10:53:05 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/25 07:51:24 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "philo_one.h"
 
 static void		build_a_message(char *buf, int current_time, char *state,
-					t_philosopher *philo)
+							t_philosopher *philo)
 {
 	memset(buf, '\0', PH_BUFSIZE);
 	ft_putnbr_to_buf(current_time, buf);
@@ -25,7 +25,7 @@ static void		build_a_message(char *buf, int current_time, char *state,
 }
 
 void			print_status(int current_time, char *state,
-						t_philosopher *philo)
+							t_philosopher *philo)
 {
 	static char	buf[PH_BUFSIZE];
 

@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:03:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/24 11:28:39 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/25 07:57:39 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # define PH_SLEEPING " is sleeping\n"
 # define PH_THINKING " is thinking\n"
 # define PH_DIED " died\n"
-# define PH_MONITORING_DELAY 1000
-# define PH_USLEEP_DELAY 400
+# define PH_MONITORING_DELAY 1
+# define PH_USLEEP_DELAY 500
 # define PH_BUFSIZE 50
 
 # define PH_ERR_WRONG_NUMBER_ARG "wrong number of arguments"
@@ -36,7 +36,6 @@ typedef struct		s_philosopher
 	pthread_mutex_t	*right_fork;
 	pthread_mutex_t	eat_time_mutex;
 	pthread_t		philo_thread;
-	pthread_t		monitor_thread;
 	int				i;
 	int				last_eat_time;
 	int				count_eat_times;
@@ -50,9 +49,10 @@ typedef struct		s_data
 	int				time_to_sleep;
 	int				number_to_eat;
 	t_philosopher	*philos;
+	pthread_t		monitor_thread;
 	pthread_mutex_t	output_mutex;
-	pthread_mutex_t	dead_philo_mutex;
 	int				some_philo_is_dead;
+	int				philos_have_eaten;
 	long			start_time;
 }					t_data;
 
