@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 17:45:41 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/24 10:53:25 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/25 03:34:19 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	*monitoring(void *philo)
 				break ;
 			g_data.some_philo_is_dead = 1;
 			pthread_mutex_lock(&g_data.output_mutex);
-			print_status(current_time, PH_DIED, philo);
+			print_status(ph_time(), PH_DIED, philo);
 			pthread_mutex_unlock(&g_data.output_mutex);
 			pthread_mutex_unlock(&g_data.dead_philo_mutex);
 		}

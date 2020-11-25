@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 17:18:00 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/24 11:05:22 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/25 03:48:34 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,7 @@ static void	check_if_all_philo_have_eaten(void)
 		i++;
 	}
 	if (i == g_data.number_of_philos)
-	{
-		pthread_mutex_lock(&g_data.dead_philo_mutex);
 		g_data.some_philo_is_dead = 1;
-		pthread_mutex_unlock(&g_data.dead_philo_mutex);
-	}
 }
 
 void		change_state(char *state, t_philosopher *philo)
