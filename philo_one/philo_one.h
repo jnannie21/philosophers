@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:03:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/26 05:24:16 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/26 07:10:46 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define PH_USLEEP_DELAY 500
 # define PH_BUFSIZE 50
 
+# define PH_ERROR_INTRO "error: "
 # define PH_ERR_WRONG_NUMBER_ARG "wrong number of arguments"
 # define PH_ERR_WRONG_NUMBER_PHILO "wrong number of philosophers(must be > 1)"
 # define PH_ERR_NOT_NUMERIC_ARG "all arguments must be numeric"
