@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 17:18:00 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/26 03:59:15 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/26 09:46:03 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void		change_state(char *state, t_philosopher *philo)
 	int		current_time;
 
 	pthread_mutex_lock(&g_data.output_mutex);
-	current_time = ph_time();
 	if (g_data.some_philo_is_dead)
 	{
 		pthread_mutex_unlock(&g_data.output_mutex);
 		return ;
 	}
+	current_time = ph_time();
 	print_status(current_time, state, philo);
 	if (ft_strcmp(state, PH_EATING) == 0)
 	{
