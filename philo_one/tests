@@ -12,3 +12,5 @@ should die
 ./philo_one 2 310 200 200
 should stop if both have eaten at least 2 times
 ./philo_one 2 410 200 200 2
+
+./philo_one 200 410 200 200

@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:03:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/24 11:28:39 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/26 05:24:16 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 # include <pthread.h>
 # include <stddef.h>
 
-# define PH_FORK_TAKEN " has taken a fork\n"
-# define PH_EATING " is eating\n"
-# define PH_SLEEPING " is sleeping\n"
-# define PH_THINKING " is thinking\n"
-# define PH_DIED " died\n"
-# define PH_MONITORING_DELAY 1000
-# define PH_USLEEP_DELAY 400
+# define PH_FORK_TAKEN "has taken a fork"
+# define PH_EATING "is eating"
+# define PH_SLEEPING "is sleeping"
+# define PH_THINKING "is thinking"
+# define PH_DIED "died"
+# define PH_MONITORING_DELAY 500
+# define PH_USLEEP_DELAY 500
 # define PH_BUFSIZE 50
 
 # define PH_ERR_WRONG_NUMBER_ARG "wrong number of arguments"
@@ -51,7 +51,6 @@ typedef struct		s_data
 	int				number_to_eat;
 	t_philosopher	*philos;
 	pthread_mutex_t	output_mutex;
-	pthread_mutex_t	dead_philo_mutex;
 	int				some_philo_is_dead;
 	long			start_time;
 }					t_data;

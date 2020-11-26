@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 17:18:00 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/25 03:48:34 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/26 03:59:15 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,26 +34,20 @@ void		change_state(char *state, t_philosopher *philo)
 	int		current_time;
 
 	pthread_mutex_lock(&g_data.output_mutex);
+	current_time = ph_time();
 	if (g_data.some_philo_is_dead)
 	{
 		pthread_mutex_unlock(&g_data.output_mutex);
 		return ;
 	}
-	current_time = ph_time();
+	print_status(current_time, state, philo);
 	if (ft_strcmp(state, PH_EATING) == 0)
 	{
-		pthread_mutex_lock(&((t_philosopher *)philo)->eat_time_mutex);
-		if (g_data.some_philo_is_dead)
-		{
-			pthread_mutex_unlock(&((t_philosopher *)philo)->eat_time_mutex);
-			pthread_mutex_unlock(&g_data.output_mutex);
-			return ;
-		}
 		philo->last_eat_time = current_time;
 		philo->count_eat_times++;
 		check_if_all_philo_have_eaten();
-		pthread_mutex_unlock(&((t_philosopher *)philo)->eat_time_mutex);
 	}
-	print_status(current_time, state, philo);
+	else if (ft_strcmp(state, PH_DIED) == 0)
+		g_data.some_philo_is_dead = 1;
 	pthread_mutex_unlock(&g_data.output_mutex);
 }

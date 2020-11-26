@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 09:04:32 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/24 10:53:05 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/26 05:20:09 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ static void		build_a_message(char *buf, int current_time, char *state,
 {
 	memset(buf, '\0', PH_BUFSIZE);
 	ft_putnbr_to_buf(current_time, buf);
-	ft_putstr_to_buf(" philosopher_", buf);
+	ft_putstr_to_buf(" ", buf);
 	ft_putnbr_to_buf(philo->i, buf);
+	ft_putstr_to_buf(" ", buf);
 	ft_putstr_to_buf(state, buf);
+	ft_putstr_to_buf("\n", buf);
 }
 
 void			print_status(int current_time, char *state,
