@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 07:15:44 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/21 07:16:53 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/24 06:10:11 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ int			read_settings(int argc, char **argv)
 	while (i < argc)
 	{
 		if (!is_numeric(argv[i]))
-			return (arg_is_error_not_numeric());
+			return (ph_error(PH_ERR_NOT_NUMERIC_ARG));
 		i++;
 	}
 	if (argc < 5 || argc > 6)
-		return (error_wrong_number_of_arguments());
+		return (ph_error(PH_ERR_WRONG_NUMBER_ARG));
 	if ((g_data.number_of_philos = ft_atoi(argv[1])) < 2)
-		return (error_wrong_number_of_philosophers());
+		return (ph_error(PH_ERR_WRONG_NUMBER_PHILO));
 	g_data.time_to_die = ft_atoi(argv[2]);
 	g_data.time_to_eat = ft_atoi(argv[3]);
 	g_data.time_to_sleep = ft_atoi(argv[4]);
