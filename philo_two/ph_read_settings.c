@@ -6,11 +6,11 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 07:15:44 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/24 06:10:11 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/27 03:39:28 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_one.h"
+#include "philo.h"
 
 static int	is_numeric(char *str)
 {

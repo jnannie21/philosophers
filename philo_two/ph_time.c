@@ -6,12 +6,12 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 17:21:28 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/15 17:22:45 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/27 03:39:34 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sys/time.h>
-#include "philo_one.h"
+#include "philo.h"
 
 int	ph_time(void)
 {

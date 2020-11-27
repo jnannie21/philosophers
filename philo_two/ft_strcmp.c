@@ -6,11 +6,11 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 03:43:03 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/18 07:32:37 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/27 03:36:49 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_one.h"
+#include "philo.h"
 
 int		ft_strcmp(char *s1, char *s2)
 {

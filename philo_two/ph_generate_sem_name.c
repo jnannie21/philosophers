@@ -6,12 +6,12 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 08:24:03 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/26 08:26:43 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/27 03:38:05 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include "philo_one.h"
+#include "philo.h"
 
 void		generate_sem_name(char *base_name, int i, char *buf)
 {

@@ -6,11 +6,11 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 17:18:00 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/26 09:45:38 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/27 03:37:14 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_one.h"
+#include "philo.h"
 
 static void	check_if_all_philo_have_eaten(void)
 {

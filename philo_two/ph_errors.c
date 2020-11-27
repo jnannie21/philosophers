@@ -6,12 +6,12 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 23:09:04 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/26 07:09:11 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/27 03:38:01 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "philo_one.h"
+#include "philo.h"
 
 int			ph_error(char *msg)
 {

@@ -6,12 +6,12 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 17:45:41 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/26 07:52:30 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/27 03:38:42 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "philo_one.h"
+#include "philo.h"
 
 void	*monitoring(void *philo)
 {

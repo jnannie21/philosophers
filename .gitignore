@@ -1,6 +1,8 @@
 *.o
 a.out
 philo_one/philo_one
+philo_two/philo_two
+philo_three/philo_three
 .DS_Store
 .vscode
 1.c

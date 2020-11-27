@@ -6,12 +6,11 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 02:33:17 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/24 06:14:49 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/27 04:19:09 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "philo_one.h"
+#include "philo.h"
 
 static long		ft_pow10(int n)
 {

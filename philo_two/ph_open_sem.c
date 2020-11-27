@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ph_usleep.c                                        :+:      :+:    :+:   */
+/*   ph_open_sem.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/18 01:31:17 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/27 03:39:37 by jnannie          ###   ########.fr       */
+/*   Created: 2020/11/27 04:01:34 by jnannie           #+#    #+#             */
+/*   Updated: 2020/11/27 04:02:47 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <errno.h>
 #include "philo.h"
 
-void	ph_usleep(int msec)
+sem_t		*ph_open_sem(char *buf)
 {
-	int	current_time;
+	sem_t			*sem;
 
-	current_time = ph_time();
-	while (current_time + msec > ph_time())
-		usleep(PH_USLEEP_DELAY);
+	if ((sem = sem_open(buf, O_CREAT | O_EXCL, S_IRWXU, 1)) == SEM_FAILED)
+	{
+		if (errno == EEXIST)
+		{
+			sem_unlink(buf);
+			sem = sem_open(buf, O_CREAT | O_EXCL, S_IRWXU, 1);
+		}
+	}
+	return (sem);
 }

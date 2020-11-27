@@ -6,11 +6,11 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 23:16:46 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/01 23:19:10 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/27 03:36:54 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_one.h"
+#include "philo.h"
 
 size_t	ft_strlen(const char *s)
 {

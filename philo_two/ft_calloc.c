@@ -6,13 +6,13 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:43:00 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/18 07:33:46 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/27 03:36:30 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
-#include "philo_one.h"
+#include "philo.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {

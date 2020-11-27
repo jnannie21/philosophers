@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_one.h                                        :+:      :+:    :+:   */
+/*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:03:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/26 08:24:37 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/27 04:02:54 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_ONE_H
-# define PHILO_ONE_H
+#ifndef PHILO_H
+# define PHILO_H
 
 # include <pthread.h>
 # include <semaphore.h>
@@ -83,5 +83,6 @@ void				ph_usleep(int msec);
 void				print_status(int current_time, char *state,
 								t_philosopher *philo);
 void				generate_sem_name(char *base_name, int i, char *buf);
+sem_t				*ph_open_sem(char *buf);
 
 #endif

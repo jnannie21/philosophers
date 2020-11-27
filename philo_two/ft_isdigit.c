@@ -6,11 +6,11 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/08 05:40:51 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/19 05:13:34 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/27 03:36:35 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_one.h"
+#include "philo.h"
 
 int		ft_isdigit(int c)
 {

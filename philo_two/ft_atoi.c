@@ -6,11 +6,11 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 23:10:56 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/02 02:02:18 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/27 03:36:21 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_one.h"
+#include "philo.h"
 
 #define MAX_LONG_LENGTH 19
 #define MAX_POS_LONG_VALUE 9223372036854775807UL
