@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:03:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/27 04:02:54 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/27 14:19:18 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@
 
 typedef struct		s_philosopher
 {
-	sem_t			*left_fork_sem;
-	sem_t			*right_fork_sem;
 	sem_t			*eat_time_sem;
 	pthread_t		philo_thread;
 	pthread_t		monitor_thread;
@@ -54,6 +52,8 @@ typedef struct		s_data
 	int				number_to_eat;
 	t_philosopher	*philos;
 	sem_t			*output_sem;
+	sem_t			*forks_sem;
+	sem_t			*take_forks_sem;
 	int				some_philo_is_dead;
 	long			start_time;
 }					t_data;
@@ -83,6 +83,6 @@ void				ph_usleep(int msec);
 void				print_status(int current_time, char *state,
 								t_philosopher *philo);
 void				generate_sem_name(char *base_name, int i, char *buf);
-sem_t				*ph_open_sem(char *buf);
+sem_t				*ph_open_sem(char *buf, int n);
 
 #endif
