@@ -6,11 +6,10 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 22:28:48 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/27 04:08:27 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/27 05:06:21 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <errno.h>
 #include "philo.h"
 
 t_data			g_data;
