@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:03:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/26 07:10:46 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/27 14:51:46 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,16 @@
 # include <pthread.h>
 # include <stddef.h>
 
-# define PH_FORK_TAKEN "has taken a fork"
-# define PH_EATING "is eating"
-# define PH_SLEEPING "is sleeping"
-# define PH_THINKING "is thinking"
-# define PH_DIED "died"
+# define PH_FORK_TAKEN 0
+# define PH_EATING 1
+# define PH_SLEEPING 2
+# define PH_THINKING 3
+# define PH_DIED 4
+# define PH_FORK_TAKEN_LINE "has taken a fork"
+# define PH_EATING_LINE "is eating"
+# define PH_SLEEPING_LINE "is sleeping"
+# define PH_THINKING_LINE "is thinking"
+# define PH_DIED_LINE "died"
 # define PH_MONITORING_DELAY 500
 # define PH_USLEEP_DELAY 500
 # define PH_BUFSIZE 50
@@ -70,7 +75,7 @@ int					ph_error(char *msg);
 
 void				*philo_lifecycle(void *philo);
 void				*monitoring(void *philo);
-void				change_state(char *state, t_philosopher *philo);
+void				change_state(int state, t_philosopher *philo);
 int					ph_time(void);
 void				run_threads(void);
 void				join_threads(void);
@@ -78,7 +83,7 @@ int					read_settings(int argc, char **argv);
 int					init_philosophers(void);
 void				destroy_philosophers(void);
 void				ph_usleep(int msec);
-void				print_status(int current_time, char *state,
+void				print_status(int current_time, int state,
 								t_philosopher *philo);
 
 #endif
