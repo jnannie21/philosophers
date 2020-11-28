@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:03:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/27 14:19:18 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/28 14:12:18 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define PH_ERR_WRONG_NUMBER_ARG "wrong number of arguments"
 # define PH_ERR_WRONG_NUMBER_PHILO "wrong number of philosophers(must be > 1)"
 # define PH_ERR_NOT_NUMERIC_ARG "all arguments must be numeric"
+# define PH_ERR_WRONG_NUMBER_EAT "wrong number of times to eat (must be > 0)"
 # define PH_ERR_FATAL "fatal error"
 
 typedef struct		s_philosopher

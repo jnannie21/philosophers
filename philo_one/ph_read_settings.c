@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 07:15:44 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/24 06:10:11 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/28 14:10:57 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,7 @@ int			read_settings(int argc, char **argv)
 		g_data.number_to_eat = ft_atoi(argv[5]);
 	else
 		g_data.number_to_eat = -1;
+	if (g_data.number_to_eat == 0)
+		return (ph_error(PH_ERR_WRONG_NUMBER_EAT));
 	return (0);
 }
