@@ -15,4 +15,6 @@ should stop if both have eaten at least 2 times
 
 ./philo_three 200 410 200 200
 
+valgrind --leak-check=full ./philo_three 200 410 200 200
+
 ulimit -n 1000

@@ -6,24 +6,43 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 21:16:32 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/27 05:31:03 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/29 12:25:43 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "philo.h"
 
-void	destroy_philosophers(void)
+static void		destroy_global_sems(void)
 {
-	int		i;
-	char	buf[PH_MAX_SEM_NAME_LEN];
-
-	if (g_data.forks_sem
-		&& g_data.forks_sem != SEM_FAILED)
+	if (g_data.output_sem && (g_data.output_sem != SEM_FAILED))
+	{
+		sem_close(g_data.output_sem);
+		sem_unlink("output_sem");
+	}
+	if (g_data.take_forks_sem && (g_data.take_forks_sem != SEM_FAILED))
+	{
+		sem_close(g_data.take_forks_sem);
+		sem_unlink("take_forks_sem");
+	}
+	if (g_data.philo_full_sem && (g_data.philo_full_sem != SEM_FAILED))
+	{
+		sem_close(g_data.philo_full_sem);
+		sem_unlink("philo_full_sem");
+	}
+	if (g_data.forks_sem && (g_data.forks_sem != SEM_FAILED))
 	{
 		sem_close(g_data.forks_sem);
 		sem_unlink("forks_sem");
 	}
+}
+
+void			destroy_philosophers(void)
+{
+	int		i;
+	char	buf[PH_MAX_SEM_NAME_LEN];
+
+	destroy_global_sems();
 	i = 0;
 	while (g_data.philos
 			&& (i < g_data.number_of_philos))
@@ -38,4 +57,5 @@ void	destroy_philosophers(void)
 		i++;
 	}
 	free(g_data.philos);
+	free(g_data.philo_ids);
 }

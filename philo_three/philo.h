@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:03:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/28 15:02:12 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/29 10:29:17 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct		s_philosopher
 	int				i;
 	int				last_eat_time;
 	int				count_eat_times;
+	int				pid;
 }					t_philosopher;
 
 typedef struct		s_data
@@ -58,6 +59,7 @@ typedef struct		s_data
 	sem_t			*take_forks_sem;
 	sem_t			*philo_full_sem;
 	long			start_time;
+	int				*philo_ids;
 }					t_data;
 
 extern t_data		g_data;

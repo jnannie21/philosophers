@@ -6,3 +6,6 @@ philo_three/philo_three
 .DS_Store
 .vscode
 1.c
+philo_one.dSYM
+philo_two.dSYM
+philo_three.dSYM

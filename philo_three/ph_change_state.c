@@ -6,27 +6,12 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 17:18:00 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/28 14:29:04 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/11/29 11:25:15 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "philo.h"
-
-// static void	check_if_all_philo_have_eaten(void)
-// {
-// 	int		i;
-
-// 	i = 0;
-// 	while (i < g_data.number_of_philos)
-// 	{
-// 		if (g_data.philos[i].count_eat_times < g_data.number_to_eat)
-// 			break ;
-// 		i++;
-// 	}
-// 	if (i == g_data.number_of_philos)
-// 		exit(0);
-// }
 
 void		change_state(char *state, t_philosopher *philo)
 {
@@ -42,11 +27,17 @@ void		change_state(char *state, t_philosopher *philo)
 		{
 			philo->count_eat_times++;
 			if (philo->count_eat_times == g_data.number_to_eat)
+			{
 				sem_post(g_data.philo_full_sem);
-			// check_if_all_philo_have_eaten();
+				sem_wait(g_data.output_sem);
+			}
 		}
 	}
 	else if (ft_strcmp(state, PH_DIED) == 0)
+	{
+		free(g_data.philos);
+		free(g_data.philo_ids);
 		exit(0);
+	}
 	sem_post(g_data.output_sem);
 }

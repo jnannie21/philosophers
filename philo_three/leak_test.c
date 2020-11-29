@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   leak_test.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 22:28:48 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/29 12:23:03 by jnannie          ###   ########.fr       */
+/*   Created: 2020/11/29 07:52:19 by jnannie           #+#    #+#             */
+/*   Updated: 2020/11/29 11:42:26 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-t_data			g_data;
+int *g_pointer;
 
-int			main(int argc, char **argv)
+int		main(void)
 {
-	if (read_settings(argc, argv) == -1
-		|| init_philosophers() == -1)
+	int		pid;
+	int		*p;
+
+	g_pointer = malloc(10);
+	p = malloc(10);
+	pid = fork();
+	if (pid == -1)
+		exit(0);
+	if (pid == 0)
 	{
-		destroy_philosophers();
-		return (1);
+		write(1, "child\n", 6);
+		exit(0);
 	}
-	run_threads();
-	destroy_philosophers();
+	else
+		write(1, "parent\n", 7);
+	free(g_pointer);
+	free(p);
 	return (0);
 }
