@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:03:49 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/29 10:29:17 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/12/01 15:23:29 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void				*philo_lifecycle(void *philo);
 void				*monitoring(void *philo);
 void				change_state(char *state, t_philosopher *philo);
 int					ph_time(void);
-void				run_threads(void);
+int					run_threads(void);
 void				join_threads(void);
 int					read_settings(int argc, char **argv);
 int					init_philosophers(void);

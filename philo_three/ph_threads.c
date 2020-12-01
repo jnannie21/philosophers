@@ -6,7 +6,7 @@
 /*   By: jnannie <jnannie@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 18:41:17 by jnannie           #+#    #+#             */
-/*   Updated: 2020/11/29 12:28:19 by jnannie          ###   ########.fr       */
+/*   Updated: 2020/12/01 15:42:53 by jnannie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void		ph_kill_all_childs(int dead_child)
 	}
 }
 
-void			child_process(int i)
+static void		child_process(int i)
 {
 	pthread_create(&g_data.philos[i].philo_thread, NULL,
 				philo_lifecycle, g_data.philos + i);
@@ -54,7 +54,13 @@ void			child_process(int i)
 	pthread_join(g_data.philos[i].monitor_thread, NULL);
 }
 
-void			run_threads(void)
+static int		ph_fork_error(void)
+{
+	ph_kill_all_childs(0);
+	return (ph_error(PH_ERR_FATAL));
+}
+
+int				run_threads(void)
 {
 	int		i;
 	int		pid;
@@ -64,7 +70,7 @@ void			run_threads(void)
 	{
 		pid = fork();
 		if (pid < 0)
-			break ;
+			return (ph_fork_error());
 		else if (pid == 0)
 			child_process(i);
 		g_data.philo_ids[i] = pid;
@@ -78,4 +84,5 @@ void			run_threads(void)
 	}
 	pid = waitpid(-1, NULL, 0);
 	ph_kill_all_childs(pid);
+	return (0);
 }
